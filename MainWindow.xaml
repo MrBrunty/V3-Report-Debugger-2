@@ -1,0 +1,116 @@
+﻿<Window x:Class="Custom_Report_Debugger_2._0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Custom_Report_Debugger_2._0"
+        mc:Ignorable="d"
+        Title="Custom Report Debugger 2" Height="622" Width="800">
+    <Grid HorizontalAlignment="Left" Height="591" VerticalAlignment="Top" Width="790" AllowDrop="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="393*"/>
+            <ColumnDefinition Width="397*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="selectAndLoad_Grid" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="579*"/>
+                <ColumnDefinition Width="211*"/>
+            </Grid.ColumnDefinitions>
+            <RichTextBox x:Name="textToTest" HorizontalAlignment="Left" Height="282" Margin="27,179,0,0" VerticalAlignment="Top" Width="740" Cursor="Arrow" IsReadOnly="True" Block.LineHeight="3" ToolTip="This does not auto update, you will need to re-select a file in order to restart a test" Grid.ColumnSpan="2">
+                <FlowDocument>
+                    <Paragraph LineHeight="3">
+                        <Run Text=""/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Label Content="Please select a document in the .docx format to test." Margin="27,112,0,0" VerticalAlignment="Top" Height="43" x:Name ="documentSelectionGuidance" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="740" Grid.ColumnSpan="2"/>
+            <Button x:Name ="SelectFile_Button" Content="Select File" VerticalAlignment="Top" Margin="295,33,0,0" Height="74" Click="Button_Click" HorizontalAlignment="Left" Width="202"/>
+            <TextBlock x:Name="previewDescription" HorizontalAlignment="Left" Margin="27,155,0,0" TextWrapping="Wrap" Text="Text taken from the selected file:" VerticalAlignment="Top" Width="740" Visibility="Hidden" FontSize="14" FontWeight="Bold" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name ="formatting_description" HorizontalAlignment="Left" Margin="27,466,0,0" TextWrapping="Wrap" Text="Please review the above to ensure it is of the correct file, each MERGEFIELD should be on a new line and include curly braces either side. Any that appear incorrectly here may not be tested correctly with this program, and should be checked manually to validate them. Once you are happy with the data above, press the confirm button below." VerticalAlignment="Top" Height="53" Width="740" Visibility="Hidden" Grid.ColumnSpan="2"/>
+            <Button x:Name ="confirmation_button" Content="Confirm" Height="38" Margin="327,533,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="137" Click="Button_Click_1" Visibility="Hidden"/>
+            <Button Name = "help_button" Content="Help" Grid.Column="1" HorizontalAlignment="Left" Margin="82,10,0,0" VerticalAlignment="Top" Width="106" Height="47" Click="help_button_Click"/>
+
+        </Grid>
+        <Grid x:Name="progress_Grid" HorizontalAlignment="Left" Height="591" VerticalAlignment="Top" Width="790" Visibility="Hidden" Grid.ColumnSpan="2">
+            <RichTextBox Name ="processingStatus_Text" HorizontalAlignment="Left" Height="200" Margin="10,381,0,0" VerticalAlignment="Top" Width="770" IsReadOnly="True" Block.LineHeight="3" TextOptions.TextFormattingMode="Display">
+                <FlowDocument>
+                    <Paragraph LineHeight="3">
+                        <Run Text=""/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <ProgressBar HorizontalAlignment="Left" Height="35" Margin="10,341,0,0" VerticalAlignment="Top" Width="770" Name="progress_bar"/>
+            <Label Name ="softwareRunning_Label" Content="Software running, please be patient, this should take 1 - 2 minutes... &#xD;&#xA;Whilst you wait, please enjoy some pictures of cute pets." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="62" Width="770" FontSize="18"/>
+            <Image Name ="doggo_pic" Margin="10,72,568,255" Source="aa526cfc99c5f060d25fbd572e06bec9--buzzfeed-animals-silly-dogs.jpg" Stretch="Fill"/>
+            <Image Name ="kitty_pic" Margin="227,72,227,255" Source="cute-cat-videos-lede.jpg" Stretch="Fill"/>
+            <Image Name ="hamster_pic" Margin="568,72,10,255" Source="097b43a8cf3621a039f5f5175d57362f--cute-hamsters.jpg" Stretch="Fill"/>
+            <Button Name ="viewResults_Button" Content="Continue" HorizontalAlignment="Left" Margin="323,169,0,0" VerticalAlignment="Top" Width="157" Height="65" Click="Button_Click_2" Visibility="Hidden"/>
+        </Grid>
+        <Grid x:Name="results_Grid" HorizontalAlignment="Left" Height="571" Margin="10,10,0,0" VerticalAlignment="Top" Width="770" Grid.ColumnSpan="2" Visibility="Hidden">
+            <RichTextBox Name ="results_text" HorizontalAlignment="Left" Height="504" Margin="10,57,0,0" VerticalAlignment="Top" Width="750" IsReadOnly="True" Block.LineHeight="3">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="Below are the full results of the various tests, please work section by section when fixing these, and re-run the checks in between. Sometimes errors found higher up in this list, will affect those further down. If you can't work out what the problem is, please speak with other members of the team to try and work it out. Please remember that this debugger is not an auto solver, it covers most issues that arise, however it is not perfect and may well miss errors, for example, it does not check that all groups opened inside tables are closed in the same table. However, if you identify something that it has missed, please let Tom know so that he can try to fix it."/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Label Content="The results are in!" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="42" Width="491" FontSize="18"/>
+            <Button Content="Restart" HorizontalAlignment="Left" Margin="649,8,0,0" VerticalAlignment="Top" Width="111" Height="42" Click="Button_Click_3"/>
+            <Button Content="Help" HorizontalAlignment="Left" Margin="533,8,0,0" VerticalAlignment="Top" Width="111" Height="42" Click="HelpButtonClick_Results"/>
+        </Grid>
+        <Grid Name ="helpScreen_Grid" HorizontalAlignment="Left" Height="591" VerticalAlignment="Top" Width="790" Grid.ColumnSpan="2" Visibility="Hidden">
+            <Label Content="Help and Support" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="35" Width="303" FontSize="18" FontWeight="Bold"/>
+            <RichTextBox HorizontalAlignment="Left" Height="531" Margin="10,50,0,0" VerticalAlignment="Top" Width="770">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run FontWeight="Bold" FontSize="14" Text="Before you start"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="Before utilizing this tool, you will need to be sure that there is a problem with the template specifically. If there isn't a problem with the template, then this tool will not solve your issue. In order to determine whether the issue is with the template or Enable, you should first attempt to run this report on the relevant client. Immediately after, you should run the global version 3 template on the same client. In theory, if the base template completes, but the custom template doesn't, then that indicates an issue with the template. However in cases where both the global report and template do not run, there may be an issue on either the client record, or on the back end of Enable."/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run FontWeight="Bold" FontSize="14" Text="Document Loading"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="When loading a document, this tool does the following: It pulls every word in the document and assigns each of them a position in a list. It will then iterate over that list looking for the word &quot;MERGEFIELD&quot;, when it finds them, it will then take that word and then the next word stored in the array, and combine them to make the full Mergefield and add in the curly braces. As a result of this, if there is not a space between mergefields in the document, it will consider them one word, however this space can appear inside of the curly brackets in the document. For example if in the test document it looks like this:"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="{}{ MERGEFIELD BeginGroup:Report }{ MERGEFIELD ClientForename } it will be fine, and work as expected, however, if it looks like this:"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="{}{ MERGEFIELD BeginGroup:Report}{MERGEFIELD ClientForename } then you may have issues."/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="You should be able to identify Mergefields with this problem in the preview window as they will appear incorrectly."/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run FontWeight="Bold" FontSize="14" Text="Existence Checks"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="This field may sometimes spit out some interesting results due to the way mergefields are constructed, however the database is complete, you will need to sense check this and reference against the document to be sure, often fields that appear here legitimately, will be there due to spelling or capitalisation. Having said that, if it identifies at any point &quot;{ MERGEFIELD }&quot; as an issue, then you will need to find which mergefield is causing this as it's a field that wasn't picked up correctly during the document loading process."/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run FontWeight="Bold" FontSize="14" Text="Begin and End Group Checks"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="The way this section works, is it counts how many of each begin group there are, and compares them to the amount of respective end groups they have. This should be relatively easy to solve, though if any of these begin/end groups appear to not exist as a result of the first check, then the spelling/capitalisation error will be the issue, not the group appearance."/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run FontWeight="Bold" FontSize="14" Text="Hierarchy Checks"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="This is the check that takes the longest to complete. This essentially runs through each mergefield individually and ensures that the needed mergefields to be open are open. These are the most complicated issues to solve, but essentially find the location of it in the document, and check that the relevant groups are open."/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run FontWeight="Bold" FontSize="14" Text="This tool didn't fix the problem, what now?"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="If you need to read this, then you unfortunately have a seriously complex issue. The likelihood is it's as result of a table including a begin group, but the end group is outside the table. Unfortunately this is not something that this debugger can see and so it causes issues. It is suggested that you look at this first and then start removing sections in order to narrow down the problem. Please see support articles for further guidance here, or talk to another member of the team."/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Button Name ="backToLoad_Button" Content="Back" HorizontalAlignment="Left" Margin="673,10,0,0" VerticalAlignment="Top" Width="107" Click="backToLoad_Button_Click_" Height="35" Visibility="Hidden"/>
+            <Button x:Name ="backToResults_Button" Content="Back" HorizontalAlignment="Left" Margin="673,10,0,0" VerticalAlignment="Top" Width="107" Click="backToResults_Button_Click_" Height="35" Visibility="Hidden"/>
+        </Grid>
+    </Grid>
+</Window>

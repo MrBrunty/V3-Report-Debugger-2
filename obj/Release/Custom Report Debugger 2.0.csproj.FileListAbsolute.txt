@@ -1,0 +1,18 @@
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\obj\Release\Custom Report Debugger 2.0.csprojAssemblyReference.cache
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\obj\Release\MainWindow.g.cs
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\obj\Release\App.g.cs
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\obj\Release\MainWindow.baml
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\obj\Release\Custom_Report_Debugger_2._0.Properties.Resources.resources
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\obj\Release\Custom Report Debugger 2.0.csproj.GenerateResource.cache
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\bin\Release\Custom Report Debugger.exe.config
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\bin\Release\Custom Report Debugger.exe.manifest
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\bin\Release\Custom Report Debugger.application
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\bin\Release\Custom Report Debugger.exe
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\bin\Release\Custom Report Debugger.pdb
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\obj\Release\Custom Report Debugger_MarkupCompile.cache
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\obj\Release\Custom Report Debugger_MarkupCompile.lref
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\obj\Release\Custom Report Debugger.g.resources
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\obj\Release\Custom Report Debugger.exe.manifest
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\obj\Release\Custom Report Debugger.application
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\obj\Release\Custom Report Debugger.exe
+C:\Users\Tom.Tom-PC\source\repos\Custom Report Debugger 2.0\obj\Release\Custom Report Debugger.pdb
